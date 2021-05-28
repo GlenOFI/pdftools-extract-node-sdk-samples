@@ -19,6 +19,9 @@ const ExtractPdfSdk = require('@adobe/pdftools-extract-node-sdk');
  */
 
 try {
+    // const fileName="640QSC0004-2130-SW-CP-0001_C-ScopeofWork-Copy.pdf";
+    // const fileName="45-PL-EN-0014_1_IFU.pdf";
+    const fileName="Electricity (Licensing) Regulations 1991 - [07-h0-01].pdf";
 
 	// Initial setup, create credentials instance.
 	const credentials =  ExtractPdfSdk.Credentials
@@ -33,8 +36,9 @@ try {
 			.createNew(),
 
 		// Set operation input from a source file.
+        // 'resources/extractPdfInput.pdf',
 		input = ExtractPdfSdk.FileRef.createFromLocalFile(
-			'resources/extractPdfInput.pdf',
+            `OFISampleDocs/${fileName}`,
 			ExtractPdfSdk.ExtractPDF.SupportedSourceFormat.pdf
 		);
 
@@ -47,8 +51,11 @@ try {
 	extractPDFOperation.addElementToExtractRenditions(ExtractPdfSdk.PDFElementType.TABLES);
 
 	// Execute the operation
+    // .then(result => result.saveAsFile('output/extractTextTableInfoWithFiguresTablesRenditionsFromPdf.zip'))
+    // .then(result => result.saveAsFile(`output/${fileName}.zip`))
+
 	extractPDFOperation.execute(clientContext)
-		.then(result => result.saveAsFile('output/extractTextTableInfoWithFiguresTablesRenditionsFromPdf.zip'))
+        .then(result => result.saveAsFile(`output/test`))
 		.catch(err => console.log(err));
 } catch (err) {
 	console.log("Exception encountered while executing operation", err);
