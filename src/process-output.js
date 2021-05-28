@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 
 const fileDirectory = 'output'
-const inputFileName = 'extractPdfInput.pdf.json'
+const inputFileName = 'Electricity (Licensing) Regulations 1991 - [07-h0-01].pdf.json'
 
 async function readFile(filePath) {
   try {
@@ -20,7 +20,8 @@ async function readFile(filePath) {
                 path: element.Path,
                 text: element.Text,
                 objectId: element.ObjectID,
-                page: element.Page
+                page: element.Page,
+                filePaths: element.filePaths
             }
         }
     )
