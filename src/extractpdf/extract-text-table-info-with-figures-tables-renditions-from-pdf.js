@@ -26,7 +26,7 @@ try {
 	// Initial setup, create credentials instance.
 	const credentials =  ExtractPdfSdk.Credentials
 		.serviceAccountCredentialsBuilder()
-		.fromFile(`pdftools-api-credentials.json`)
+		.fromFile(`credentials/pdftools-api-credentials.json`)
 		.build();
 
 	//Create a clientContext using credentials and create a new operation instance.
