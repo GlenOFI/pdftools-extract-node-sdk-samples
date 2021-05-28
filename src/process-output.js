@@ -9,17 +9,27 @@ async function readFile(filePath) {
     
     const data = JSON.parse(buffer.toString())
 
-    const reducedData = data.elements.map(element=> 
-        {return {
-            path: element.Path,
-            text: element.Text,
-            objectId: element.ObjectID,
-            page: element.Page
-        }})
+    const documentInfo = {
+        name:inputFileName,
+        pageCount: data.extended_metadata.page_count
+    }
 
-        console.log(JSON.stringify(reducedData, null, 2))
+    const reducedElements = data.elements.map(element=> 
+        {
+            return {
+                path: element.Path,
+                text: element.Text,
+                objectId: element.ObjectID,
+                page: element.Page
+            }
+        }
+    )
+
+    const reducedData = {document: documentInfo, elements: reducedElements}
+    console.log(JSON.stringify(reducedData, null, 2))
     
     return reducedData
+  
   } catch (error) {
     console.error(`Got an error trying to read the file: ${error.message}`);
   }
@@ -33,8 +43,9 @@ async function writeFile(fileDirectory, inputFileName, text) {
     }
   }
   
-  (async function () {
+(async function () {
     const reducedData = await readFile(`${fileDirectory}/${inputFileName}`);
+
     await writeFile(fileDirectory, inputFileName, JSON.stringify(reducedData, null, 2));
-  })();
+})();
 
