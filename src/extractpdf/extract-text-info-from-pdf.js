@@ -22,7 +22,7 @@ try {
 	// Initial setup, create credentials instance.
 	const credentials =  ExtractPdfSdk.Credentials
 		.serviceAccountCredentialsBuilder()
-		.fromFile(`credentials/pdftools-api-credentials.json`)
+		.fromFile(`pdftools-api-credentials.json`)
 		.build();
 
 

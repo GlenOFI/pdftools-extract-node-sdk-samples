@@ -1,14 +1,17 @@
 {
-  "name": "extractpdf-node-sdk-samples",
-  "version": "0.6.0-beta",
-  "description": "PDF Tools Extract Node.js SDK sample",
-  "author": "Adobe",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:adobe/pdftools-extract-node-sdk-samples"
-  },
-  "dependencies": {
-    "@adobe/pdftools-extract-node-sdk": "0.6.0-beta"
-  }
+    "name": "extractpdf-node-sdk-samples",
+    "version": "0.6.0-beta",
+    "description": "PDF Tools Extract Node.js SDK sample",
+    "author": "Adobe",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:adobe/pdftools-extract-node-sdk-samples"
+    },
+    "dependencies": {
+        "@adobe/pdftools-extract-node-sdk": "0.6.0-beta"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
 }
