@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs').promises;
 
 const fileDirectory = 'output'
@@ -45,8 +46,25 @@ async function writeFile(fileDirectory, inputFileName, text) {
   }
   
 (async function () {
-    const reducedData = await readFile(`${fileDirectory}/${inputFileName}`);
+    const directoryPath = path.join( __dirname, `../${fileDirectory}`);
+    console.log(directoryPath)
 
-    await writeFile(fileDirectory, inputFileName, JSON.stringify(reducedData, null, 2));
+    try{
+        const files =  await fs.readdir(directoryPath);
+            console.log('test')
+
+        for(const fileName of files){
+            console.log(fileName); 
+
+            if(fileName.toLocaleLowerCase().indexOf('.json') < 0) continue;
+
+
+            const reducedData = await readFile(`${fileDirectory}/${fileName}`);
+
+            await writeFile(fileDirectory, fileName, JSON.stringify(reducedData, null, 2));
+        }
+    }catch(err){
+        console.log(err)
+    }
 })();
 

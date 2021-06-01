@@ -65,7 +65,8 @@ const extractAsync = async () => {
                 extractPDFOperation.addElementToExtractRenditions(ExtractPdfSdk.PDFElementType.TABLES);
 
                 // Execute the operation
-                const result = await extractPDFOperation.execute(clientContext);
+                const result = await extractPDFOperation.execute(clientContext)
+                    .catch (err => console.log("extractPDFOperation exception encountered while executing operation", err));;
                 result.saveAsFile(`output/${fileName}.zip`)
             
             } catch (err) {
