@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@adobe/pdftools-extract-node-sdk": "0.6.0-beta",
-        "yauzl": "^2.10.0"
+        "extract-zip": "^2.0.1"
     },
     "devDependencies": {
         "nodemon": "^2.0.7"
