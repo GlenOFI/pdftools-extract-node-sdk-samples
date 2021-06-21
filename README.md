@@ -5,6 +5,7 @@ Have modified: extract-text-table-info-with-figures-tables-renditions-from-pdf.j
 - All PDFs in OFISampleDocs folder are processed
 
 * Output is saved in output folder with the original file name as a zip file
+* extract-output.js will zip-extract all zip files in output folder to extracted folder using the file name as the folder name
 
 # Samples for the Extract PDF Node.js SDK
 
